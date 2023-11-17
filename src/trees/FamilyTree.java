@@ -33,6 +33,8 @@ public class FamilyTree
         {
             // Add childNode to this node's children list. Also
             // set childNode's parent to this node.
+        	children.add(childNode);
+        	
         }
         
         
@@ -41,14 +43,19 @@ public class FamilyTree
         TreeNode getNodeWithName(String targetName)
         {
             // Does this node have the target name?
-            if (?????)
+            if (targetName)
+            {
                 return this;
-                    
+            }
             // No, recurse. Check all children of this node.
             for (TreeNode child: children)
             {
                 // If child.getNodeWithName(targetName) returns a non-null node,
                 // then that's the node we're looking for. Return it.
+            	if(child.getNodeWithName(targetName) != null)
+            	{
+            		return child;
+            	}
             }
             
             // Not found anywhere.
